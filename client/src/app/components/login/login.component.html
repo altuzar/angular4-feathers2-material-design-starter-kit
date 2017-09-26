@@ -2,7 +2,9 @@
   <md-card class="login-card z-depth center" flex="50">
     <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
       <md-card-header>
-        <md-card-title><h1 class="center-text">Log in or signup</h1></md-card-title>
+        <md-card-title>
+          <h1 class="mat-h1">Log in or signup</h1>
+        </md-card-title>
       </md-card-header>
       <table class="fullwidth" cellspacing="0">
         <tr>
@@ -20,14 +22,14 @@
           </td>
         </tr>
       </table>
-      <p>
-        <button md-raised-button color="primary" type="button" id="login" (click)="login(email.value, password.value)">
-          Log in
-        </button>
-        <button md-raised-button color="warn" type="submit" id="signup" (click)="signup(email.value, password.value)">
-          Signup
-        </button>
-      </p>
+      <button md-raised-button color="primary" class="fullwidth" type="button" id="login" (click)="login(email.value, password.value)">
+        Log in
+      </button>
+      <br>
+      <br>
+      <button md-raised-button color="warn" class="fullwidth" type="submit" id="signup" (click)="signup(email.value, password.value)">
+        Signup
+      </button>
       <ul>
         <li *ngFor="let m of messages">{{m}}</li>
       </ul>
