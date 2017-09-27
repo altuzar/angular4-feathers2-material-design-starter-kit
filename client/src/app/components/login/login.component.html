@@ -1,6 +1,6 @@
 <div class="login-main">
   <md-card class="login-card z-depth center" flex="50">
-    <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <form class="formwidth" (ngSubmit)="login(email.value, password.value)" #myForm="ngForm">
       <md-card-header>
         <md-card-title>
           <h1 class="mat-h1">Log in or signup</h1>
@@ -22,12 +22,12 @@
           </td>
         </tr>
       </table>
-      <button md-raised-button color="primary" class="fullwidth" type="button" id="login" (click)="login(email.value, password.value)">
+      <button md-raised-button color="primary" class="fullwidth" type="submit" id="login" (click)="login(email.value, password.value)">
         Log in
       </button>
       <br>
       <br>
-      <button md-raised-button color="warn" class="fullwidth" type="submit" id="signup" (click)="signup(email.value, password.value)">
+      <button md-raised-button color="warn" class="fullwidth" type="button" id="signup" (click)="signup(email.value, password.value)">
         Signup
       </button>
       <ul>

@@ -38,136 +38,21 @@ html, body {
   padding-bottom: 10px;
 }
 
-
-/* ======================================= */
-/* Chat App */
-/* ======================================= */
-
-#app {
-  height: 100%;
+.grid-content {
+  height: 100vh;
 }
 
-/* Header */
-header.title-bar {
-  padding: 10px 0;
-  border-bottom: 1px solid #f1f1f1;
+.panel-grid {
 }
 
-header.title-bar img.logo {
-  width: 100%;
-  max-width: 140px;
+.users-tile {
+  background-color: whitesmoke;
 }
 
-header.title-bar span.title {
-  color: #969696;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin-left: 7px;
+.messages-tile {
+  background-color: white;
 }
 
-/* User List Sidebar */
-
-aside.sidebar {
-  background: #f8f8f8;
-// height: 100%;
-  max-width: 340px;
-  padding: 15px;
-  border-right: 1px solid #f1f1f1;
-}
-
-aside.sidebar .online-count {
-  color: #31D8A0;
-  margin-right: 5px;
-}
-
-aside.sidebar h4 {
-  margin: 0 0 20px 0;
-  color: #C3C3C3;
-}
-
-aside.sidebar .user-list {
-  overflow-y: scroll;
-}
-
-aside.sidebar li {
-  margin: 15px 0;
-}
-
-aside.sidebar li > a {
-  color: #555555;
-}
-
-aside.sidebar li > a:hover > span,
-aside.sidebar li > a:focus > span {
-  color: #31D8A0;
-}
-
-aside.sidebar img.avatar {
-  border-radius: 100%;
-  height: 45px;
-  width: 45px;
-  margin-right: 10px;
-}
-
-aside.sidebar .username {
-  position: absolute;
-  line-height: 45px;
-}
-
-aside.sidebar footer {
-// min-height: 60px;
-}
-
-/* Main Chat */
-main.flex {
-  height: 100%;
-}
-
-main.chat {
-  padding: 10px;
-  overflow-y: scroll;
-}
-
-main.chat img.avatar {
-  border-radius: 100%;
-  height: 45px;
-  width: 45px;
-  flex: none;
-}
-
-main.chat .message {
-  flex: 0 0 auto;
-}
-
-main.chat .message img.avatar {
-  margin-right: 10px;
-}
-
-main.chat .message p.message-header {
-  margin: 0;
-  font-size: 0.9em;
-}
-
-main.chat .message p.message-header span.sent-date {
-  color: #969696;
-}
-
-/* Send Message Form */
-
-form {
-  min-height: 60px;
-  padding: 10px 20px;
-}
-
-form input {
-  height: auto !important;
-}
-
-#send-message button {
-  margin-left: 10px;
-}
-
-[v-cloak] {
-  display: none;
+.form-tile {
+  background-color: whitesmoke;
 }

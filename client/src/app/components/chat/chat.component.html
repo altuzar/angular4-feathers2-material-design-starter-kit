@@ -1,64 +1,43 @@
 <md-toolbar color="primary">
-    <span>App </span>
-    <span class="example-spacer"> </span>
-    <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
-    <md-menu #appMenu="mdMenu">
-        <button md-menu-item> Settings </button>
-        <button md-menu-item> Help </button>
-    </md-menu>
-  </md-toolbar>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> App Name</button>
+  <md-menu #appMenu="mdMenu">
+    <button md-menu-item> Settings </button>
+    <button md-menu-item> Help </button>
+    <button md-menu-item (click)="logOut()"> Logout </button>
+  </md-menu>
+</md-toolbar>
 
-
-<main class="flex flex-column">
-  <header class="title-bar flex flex-row flex-center">
-    <div class="title-wrapper block center-element">
-      <img class="logo" src="http://feathersjs.com/img/feathers-logo-wide.png"
-           alt="Feathers Logo">
-      <span class="title">Chat</span>
-    </div>
-  </header>
-
-  <div class="flex flex-row flex-1 clear">
-    <aside class="sidebar col col-3 flex flex-column flex-space-between" *ngIf="users$ | async as users">
-      <header class="flex flex-row flex-center">
-        <h4 class="font-300 text-center">
-          <span class="font-600 online-count">{{users.length}}</span> users
-        </h4>
-      </header>
-
-      <ul class="flex flex-column flex-1 list-unstyled user-list">
-        <li *ngFor="let user of users">
-          <a class="block relative" href="#">
-            <img [src]="user.avatar" alt="" class="avatar">
-            <span class="absolute username">{{user.email}}</span>
-          </a>
-        </li>
-      </ul>
-      <footer class="flex flex-row flex-center">
-        <a href="#" id="logout" class="button button-primary" (click)="logOut()">
-          Sign Out
-        </a>
-      </footer>
-    </aside>
-
-    <div class="flex flex-column col col-9">
-      <main class="chat flex flex-column flex-1 clear" #chat [scrollTop]="chat.scrollHeight - chat.clientHeight">
-        <div class="message flex flex-row" *ngFor="let message of messages$ | async">
-          <img [src]="message.user.avatar" [alt]="message.user.email" class="avatar">
-          <div class="message-wrapper">
-            <p class="message-header">
-              <span class="username font-600">{{message.user.email}}</span>
-              <span class="sent-date font-300">{{message.createdAt | date:'MMM dd, hh:mm:ss'}}</span>
-            </p>
-            <p class="message-content font-300">{{message.text}}</p>
-          </div>
-        </div>
-      </main>
-
+<div class="grid-content">
+  <md-grid-list cols="4" rowHeight="10%" class="panel-grid">
+    <md-grid-tile [colspan]=1 [rowspan]=8 class="users-tile">
+      <div *ngIf="users$ | async as users">
+        <md-list class="users-list">
+          <h3 md-title> Users: {{users.length}}</h3>
+          <md-list-item *ngFor="let user of users">
+            <img mdListAvatar [src]="user.avatar" alt="...">
+            <h3 mdLine> {{user.email}} </h3>
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-grid-tile>
+    <md-grid-tile [colspan]=3 [rowspan]=8 class="messages-tile">
+      <md-list>
+        <md-list-item *ngFor="let message of messages$ | async">
+          <img mdListAvatar [src]="message.user.avatar" [alt]="message.user.email">
+          <h6 mdLine> {{message.user.email}} {{message.createdAt | date:'MMM dd, hh:mm:ss'}}</h6>
+          <h3 mdLine> {{message.text}}</h3>
+        </md-list-item>
+      </md-list>
+    </md-grid-tile>
+    <md-grid-tile [colspan]=1 [rowspan]=1 class="users-tile">
+    </md-grid-tile>
+    <md-grid-tile [colspan]=3 [rowspan]=1 class="messages-tile">
       <form class="flex flex-row flex-space-between" id="send-message">
-        <input #message type="text" name="text" class="flex flex-1">
-        <button class="button-primary" (click)="sendMessage(message.value); message.value = ''">Send</button>
+        <md-input-container class="fullwidth">
+          <input mdInput #message type="text" name="text" class="block">
+        </md-input-container>
+        <button md-raised-button color="primary" (click)="sendMessage(message.value); message.value = ''">Send</button>
       </form>
-    </div>
-  </div>
-</main>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

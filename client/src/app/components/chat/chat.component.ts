@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DataService } from '../../services/data.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -13,7 +14,7 @@ export class ChatComponent {
   messages$: Observable<any[]>;
   users$: Observable<any[]>;
 
-  constructor(private data: DataService, private auth: AuthService) {
+  constructor(private data: DataService, private auth: AuthService, private router: Router) {
     // get messages from data service
     this.messages$ = data.messages$()
       // our data is paginated, so map to .data
@@ -34,5 +35,6 @@ export class ChatComponent {
 
   logOut() {
     this.auth.logOut();
+    this.router.navigate(['/login']);    
   }
 }
