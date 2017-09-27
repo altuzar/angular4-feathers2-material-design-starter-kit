@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule, MdGridListModule, MdListModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule, MdGridListModule, MdListModule, MdSidenavModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { Feathers } from './services/feathers.service';
@@ -33,7 +34,9 @@ import { AuthGuard } from './guards/auth.guard';
     MdIconModule,
     MdInputModule,
     MdGridListModule,
-    MdListModule
+    MdListModule,
+    MdSidenavModule,
+    FlexLayoutModule
   ],
   providers: [
     Feathers,

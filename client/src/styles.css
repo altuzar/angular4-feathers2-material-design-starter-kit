@@ -4,7 +4,9 @@
 @import url('~getbase/css/styles.css');
 
 html, body {
-  font-family: 'Roboto', 'Helvetica Neue', 'Helevetica', 'Arial', 'sans-serif';
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', 'sans-serif';
   color: #333;
   background: lightblue;
 }
@@ -25,34 +27,34 @@ html, body {
   width: 100%;
 }
 
-.flex-1 {
-  flex: 1 1 0;
-}
-
-.flex-2 {
-  flex: 2;
-}
-
-.row {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.grid-content {
+.app{
   height: 100vh;
 }
 
-.panel-grid {
+md-toolbar {
+  z-index: 10;
 }
 
-.users-tile {
+md-sidenav {
+  width: 25vw;
+}
+
+.make-scrollable {
+  height: calc(100% - 80px);
+  overflow-y: scroll;
+  margin-bottom: 80px;
+}
+
+.users-panel {
   background-color: whitesmoke;
 }
 
-.messages-tile {
+.messages-panel {
   background-color: white;
 }
 
-.form-tile {
+.message-form {
+  margin-top: -80px;
+  height: 80px;
   background-color: whitesmoke;
 }
