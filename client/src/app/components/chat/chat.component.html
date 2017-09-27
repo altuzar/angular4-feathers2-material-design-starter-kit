@@ -10,7 +10,7 @@
 
   <md-sidenav-container fxFlex class="messages-panel">
     <md-sidenav mode="side" align="start" opened class="mat-elevation-z6 users-panel">
-      <div *ngIf="users$ | async as users">
+      <div class="make-users-scrollable" *ngIf="users$ | async as users">
         <md-list class="users-list">
           <h3 md-title> Users: {{users.length}}</h3>
           <md-list-item *ngFor="let user of users">
@@ -21,7 +21,7 @@
       </div>
     </md-sidenav>
 
-    <md-list class="chat make-scrollable" #chat [scrollTop]="chat.scrollHeight - chat.clientHeight">
+    <md-list class="chat make-scrollable" #chat [scrollTop]="chat.scrollHeight">
       <md-list-item *ngFor="let message of messages$ | async">
         <img mdListAvatar [src]="message.user.avatar" [alt]="message.user.email">
         <h6 mdLine> {{message.user.email}} {{message.createdAt | date:'MMM dd, hh:mm:ss'}}</h6>
