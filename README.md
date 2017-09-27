@@ -8,7 +8,17 @@ This project uses [Angular](http://angular.io). One framework, mobile & desktop.
 
 ## Screenshots
 
-TBD
+There are 2 screens in the project.
+
+First the Login/Sign up route:
+
+Login/Sign up
+
+![md1](https://user-images.githubusercontent.com/122941/30928314-ddd84d94-a380-11e7-8158-e597dd5ca2fa.png)
+
+And the Chat route with the proper AuthGuard so that only logged in users can open it:
+
+![md2](https://user-images.githubusercontent.com/122941/30928315-de04728e-a380-11e7-8c15-b72889f0b99e.png)
 
 ## Getting Started
 
